@@ -21,10 +21,7 @@ export const weatherSlice = createSlice({
     setWeather: (state, action: PayloadAction<WeatherState>) => {
       return { ...state, ...action.payload };
     },
-    clearWeather: (state) => {
-      return { ...state, ...initialState };
-    },
   },
 });
 
-export const { setWeather, clearWeather } = weatherSlice.actions;
+export const { setWeather } = weatherSlice.actions;

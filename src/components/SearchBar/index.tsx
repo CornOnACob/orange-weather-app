@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { clearWeather, setWeather } from '../../weatherSlice';
+import { setWeather } from '../../weatherSlice';
 import { weatherData } from '../../weatherData';
 
 function SearchBar() {
@@ -15,7 +15,6 @@ function SearchBar() {
       const { city, temperature, humidity, windSpeed } = result;
       dispatch(setWeather({ city, temperature, humidity, windSpeed }));
     } else {
-      dispatch(clearWeather());
       console.log(`No weather data found for ${searchText}`);
     }
   };
