@@ -6,8 +6,20 @@ import WeatherConditions from './components/WeatherConditions';
 import TemperatureButton from './components/TemperatureButton';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
+import { setWeather } from './weatherSlice';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Get the city weather from local storage
+    const cityWeather = localStorage.getItem('cityWeather');
+    if (cityWeather) {
+      // Save the parsed JSON string to the Redux store
+      dispatch(setWeather(JSON.parse(cityWeather)));
+    }
+  }, []);
 
   const { city } = useSelector((state: RootState) => state.weather)
 

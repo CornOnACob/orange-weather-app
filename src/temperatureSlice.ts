@@ -12,6 +12,7 @@ export const temperatureSlice = createSlice({
   name: 'temperature',
   initialState,
   reducers: {
+    //Toggle between Celsius and Fahrenheit
     toggleTempType: (state) => {
       state.isFahrenheit = !state.isFahrenheit;
     },

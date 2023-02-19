@@ -13,6 +13,8 @@ function SearchBar() {
     const result = weatherData.find((weather) => weather.city.toLowerCase() === searchText.toLowerCase());
 
     if (result) {
+      // Save the city weather to local storage as a JSON string
+      localStorage.setItem('cityWeather', JSON.stringify(result));
       dispatch(setWeather(result));
     } else {
       toast.error(`No weather data found for city "${searchText}"`, {
@@ -25,7 +27,6 @@ function SearchBar() {
         progress: undefined,
         theme: "colored",
         });
-      console.log(`No weather data found for ${searchText}`);
     }
   };
 
@@ -33,16 +34,15 @@ function SearchBar() {
     <div>
       <input
         type="text"
-        value={searchText}
         placeholder='Enter city name'
         onChange={(event) => setSearchText(event.target.value)}
         onKeyDown={(event) => {
-          if (event.key === 'Enter') {
+          if (event.key === 'Enter' && searchText) { // If user presses Enter and input is not empty
             handleSearch();
           }
         }}
       />
-      <button onClick={handleSearch}>Search</button>
+      <button disabled={!searchText} onClick={handleSearch}>Search</button> {/* Disable button if input (searchText) is empty */}
     </div>
   );
 }
