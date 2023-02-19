@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from './store';
 import WeatherConditions from './components/WeatherConditions';
 import TemperatureButton from './components/TemperatureButton';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <ToastContainer />
       <h1>Check the Weather</h1>
       <SearchBar />
       { city && <WeatherConditions /> }
