@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setWeather } from '../../weatherSlice';
+import { setWeather } from '../weather/weatherSlice';
 import { weatherData } from '../../weatherData';
 import { toast } from 'react-toastify';
+import './index.css';
 
-function SearchBar() {
+function Search() {
   const [searchText, setSearchText] = useState('');
 
   const dispatch = useDispatch();
@@ -33,6 +34,7 @@ function SearchBar() {
   return (
     <div>
       <input
+        className='searchBar'
         type="text"
         placeholder='Enter city name'
         onChange={(event) => setSearchText(event.target.value)}
@@ -47,4 +49,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default Search;

@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { weatherSlice } from './weatherSlice';
-import { temperatureSlice } from './temperatureSlice';
+import { weatherSlice } from '../components/weather/weatherSlice';
+import { temperatureSwitchSlice } from '../components/temperatureSwitch/temperatureSwitchSlice';
 
 export const store = configureStore({
   reducer: {
     weather: weatherSlice.reducer,
-    temperature: temperatureSlice.reducer,
+    temperature: temperatureSwitchSlice.reducer,
   },
 });
 

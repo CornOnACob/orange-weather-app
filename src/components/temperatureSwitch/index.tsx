@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { toggleTempType } from '../../temperatureSlice';
+import { toggleTempType } from './temperatureSwitchSlice';
+import './index.css';
 
-function TemperatureButton() {
+function TemperatureSwitch() {
 
   const dispatch = useDispatch();
 
@@ -10,10 +11,10 @@ function TemperatureButton() {
   };
 
   return (
-    <div>
+    <div className='temperatureSwitch'>
       <button onClick={switchTemperature}>Toggle °C / °F</button>
     </div>
   );
 }
 
-export default TemperatureButton;
+export default TemperatureSwitch;

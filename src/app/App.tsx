@@ -1,13 +1,13 @@
 import './App.css'
-import SearchBar from './components/SearchBar'
+import Search from '../components/search'
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from './store';
-import WeatherConditions from './components/WeatherConditions';
-import TemperatureButton from './components/TemperatureButton';
+import Weather from '../components/weather';
+import TemperatureSwitch from '../components/temperatureSwitch';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
-import { setWeather } from './weatherSlice';
+import { setWeather } from '../components/weather/weatherSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,9 +27,9 @@ function App() {
     <div className="App">
       <ToastContainer />
       <h1>Check the Weather</h1>
-      <SearchBar />
-      { city && <WeatherConditions /> }
-      { city && <TemperatureButton /> }
+      <Search />
+      { city && <Weather /> }
+      {/* { city && <TemperatureSwitch /> } */}
     </div>
   )
 }
