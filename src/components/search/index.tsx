@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setWeather } from '../weather/weatherSlice';
-import { weatherData } from '../../weatherData';
+import { weatherData } from '../../__mocks__/weatherData';
 import { toast } from 'react-toastify';
 import './index.css';
 
@@ -32,19 +32,20 @@ function Search() {
   };
 
   return (
-    <div>
+    <div className='search'>
       <input
         className='searchBar'
         type="text"
         placeholder='Enter city name'
         onChange={(event) => setSearchText(event.target.value)}
         onKeyDown={(event) => {
-          if (event.key === 'Enter' && searchText) { // If user presses Enter and input is not empty
+          if (event.key === 'Enter' && searchText) { // If Enter is pressed & input is not empty
             handleSearch();
           }
         }}
       />
-      <button disabled={!searchText} onClick={handleSearch}>Search</button> {/* Disable button if input (searchText) is empty */}
+      {/* Disable button if input (searchText) is empty */}
+      <button disabled={!searchText} onClick={handleSearch} className='searchButton'>Search</button>
     </div>
   );
 }

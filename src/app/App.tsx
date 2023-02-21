@@ -3,7 +3,6 @@ import Search from '../components/search'
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from './store';
 import Weather from '../components/weather';
-import TemperatureSwitch from '../components/temperatureSwitch';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
@@ -29,7 +28,6 @@ function App() {
       <h1>Check the Weather</h1>
       <Search />
       { city && <Weather /> }
-      {/* { city && <TemperatureSwitch /> } */}
     </div>
   )
 }

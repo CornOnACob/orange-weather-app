@@ -14,7 +14,7 @@ function Weather() {
   );
 
   return (
-    <div className='weatherBox'>
+    <div className='weather'>
       <div className='cityText'>Weather in {city}:</div>
       <div>Temperature: { isFahrenheit ? ((temperature * 1.8) + 32).toFixed(1) : temperature } °{ isFahrenheit ? "F" : "C" }</div>
       <div>Humidity: {humidity}%</div>
