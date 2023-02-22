@@ -8,14 +8,15 @@ const initialState: TemperatureState = {
   isFahrenheit: false,
 };
 
-export const temperatureSlice = createSlice({
+export const temperatureSwitchSlice = createSlice({
   name: 'temperature',
   initialState,
   reducers: {
+    //Toggle between Celsius and Fahrenheit
     toggleTempType: (state) => {
       state.isFahrenheit = !state.isFahrenheit;
     },
   },
 });
 
-export const { toggleTempType } = temperatureSlice.actions;
+export const { toggleTempType } = temperatureSwitchSlice.actions;
